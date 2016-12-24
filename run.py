@@ -172,7 +172,7 @@ while(1):
     cv2.imshow('frame',frame)
     cv2.imshow('mask',mask)
     cv2.imshow('edge',edges)
-    k = cv2.waitKey(10) & 0xFF
+    k = cv2.waitKey(5) & 0xFF
     if k == 27:
         break
 cv2.destroyAllWindows()
