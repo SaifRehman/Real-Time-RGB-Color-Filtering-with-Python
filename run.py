@@ -6,7 +6,7 @@ r=True
 l=True
 m=True
 n=True
-def nothing(x):
+def nothing(z):
     pass
 cv2.namedWindow('image')
 cv2.createTrackbar('hMin','image',0,180,nothing)
@@ -17,8 +17,8 @@ cv2.createTrackbar('vMin','image',0,255,nothing)
 cv2.createTrackbar('vMax','image',0,255,nothing)
 cv2.createTrackbar('Kernel1','image',1,100,nothing)
 cv2.createTrackbar('Kernel2','image',1,100,nothing)
-cv2.createTrackbar('ErosionIteration','image',0,50,nothing)
-cv2.createTrackbar('DilationIteration','image',0,50,nothing)
+cv2.createTrackbar('ErosionIteration','image',0,100,nothing)
+cv2.createTrackbar('DilationIteration','image',0,100,nothing)
 cv2.createTrackbar('Closing','image',0,1,nothing)
 cv2.createTrackbar('Opening','image',0,1,nothing)
 cv2.createTrackbar('x1','image',0,200,nothing)
@@ -164,11 +164,7 @@ while(1):
     #---------------------------------------------------------------------------#
     #---------------------------------------------------------------------------#
     #-----Detecting circles----#
-                circles = cv2.HoughCircles(edges, cv2.cv.CV_HOUGH_GRADIENT, 1, 30, param1=50,param2=30,minRadius=5,maxRadius=40)
-                if circles is not None:
-                    circles = np.round(circles[0, :]).astype("int")
-                    for (x, y, r) in circles:
-                        cv2.circle(frame, (x, y), r, (0, 255, 0), 4)
+
     cv2.imshow('frame',frame)
     cv2.imshow('mask',mask)
     cv2.imshow('edge',edges)
